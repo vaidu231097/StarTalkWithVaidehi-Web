@@ -145,6 +145,68 @@
       margin-top: 3rem;
       text-shadow: 0 0 5px #d4af37;
     }
+
+    /* -----------------
+       Responsive Design
+    -------------------*/
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      section {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.4rem 0;
+      }
+
+      section {
+        margin: 0.8rem;
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p, ul li, .testimonial {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
