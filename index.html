@@ -93,7 +93,7 @@
       color: #f7e7b5;
       font-style: italic;
       box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.06s ease;
     }
 
     ul li:hover {
@@ -101,16 +101,44 @@
       box-shadow: 0 0 15px #ffd700;
     }
 
-    ul li a {
+    ul li:active {
+      transform: scale(0.995);
+    }
+
+    ul li button {
       color: #f7e7b5;
       text-decoration: none;
       display: block;
+      background: transparent;
+      border: none;
+      text-align: left;
+      width: 100%;
+      font: inherit;
+      cursor: pointer;
+      padding: 0;
     }
 
-    ul li a:hover {
+    ul li button:hover {
       text-decoration: underline;
       color: #ffd700;
     }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 9999;
+    }
+    .toast.show { opacity: 1; }
 
     .testimonial {
       background: rgba(58, 24, 70, 0.75);
@@ -242,17 +270,19 @@
   <section id="services">
     <h2>Services</h2>
     <ul>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Life%20Path%20Number%20Insights" target="_blank" rel="noopener noreferrer">Life Path Number Insights</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Name%20Numerology" target="_blank" rel="noopener noreferrer">Name Numerology – Discover the energy and vibration behind your name</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Business%20Name%20Suggestions" target="_blank" rel="noopener noreferrer">Business Name Suggestions – Find the perfect name to attract success and positive energy</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Personal%20Name%20Correction" target="_blank" rel="noopener noreferrer">Personal Name Correction – Adjust your name’s vibration for better harmony and luck</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Personal%20Year%20Forecasts" target="_blank" rel="noopener noreferrer">Personal Year Forecasts – Understand the energies influencing your year ahead</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Compatibility%20Relationship%20Readings" target="_blank" rel="noopener noreferrer">Compatibility Relationship Readings – Explore the numerology behind your love life and connections</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Financial%20Numerology" target="_blank" rel="noopener noreferrer">Financial Numerology – Gain insights into your financial energy and prosperity potential</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Career%20Guidance" target="_blank" rel="noopener noreferrer">Career Guidance – Discover your ideal path and unlock success through numbers</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Lucky%20Numbers%20and%20Dates" target="_blank" rel="noopener noreferrer">Lucky Numbers & Dates – Identify your most auspicious days and numbers</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Lushu%20Grid%20Analysis" target="_blank" rel="noopener noreferrer">Lushu Grid Analysis – Reveal your energy grid for balance and positive flow</a></li>
-      <li><a href="https://ig.me/m/startalkwithvaidehi?text=I%20am%20interested%20in%20Angel%20Number%20Interpretations" target="_blank" rel="noopener noreferrer">Angel Number Interpretations</a></li>
+      <li><button class="service-link" data-service="Life Path Number Insights">Life Path Number Insights</button></li>
+      <li><button class="service-link" data-service="Name Numerology">Name Numerology – Discover the energy and vibration behind your name</button></li>
+      <li><button class="service-link" data-service="Business Name Suggestions">Business Name Suggestions – Find the perfect name to attract success and positive energy</button></li>
+      <li><button class="service-link" data-service="Personal Name Correction">Personal Name Correction – Adjust your name’s vibration for better harmony and luck</button></li>
+      <li><button class="service-link" data-service="Personal Year Forecasts">Personal Year Forecasts – Understand the energies influencing your year ahead</button></li>
+      <li><button class="service-link" data-service="Compatibility Relationship Readings">Compatibility Relationship Readings – Explore the numerology behind your love life and connections</button></li>
+      <li><button class="service-link" data-service="Financial Numerology">Financial Numerology – Gain insights into your financial energy and prosperity potential</button></li>
+      <li><button class="service-link" data-service="Career Guidance">Career Guidance – Discover your ideal path and unlock success through numbers</button></li>
+      <li><button class="service-link" data-service="Lucky Numbers & Dates">Lucky Numbers & Dates – Identify your most auspicious days and numbers</button></li>
+      <li><button class="service-link" data-service="Lushu Grid Analysis">Lushu Grid Analysis – Reveal your energy grid for balance and positive flow</button></li>
+      <li><button class="service-link" data-service="Angel Number Interpretations">Angel Number Interpretations</button></li>
+      <!-- 🌟 New Service -->
+      <li><button class="service-link" data-service="Other Services / Custom Request">Other Services / Custom Request</button></li>
     </ul>
   </section>
 
@@ -265,7 +295,6 @@
 
   <section id="testimonials">
     <h2>Testimonials</h2>
-
     <div class="testimonial">
       “I want this information to be satisfactory, looking forward to hear from you in future.” <strong>— AT</strong>
     </div>
@@ -304,5 +333,47 @@
     &copy; 2025 StarTalkWithVaidehi | All Rights Reserved
   </footer>
 
+  <!-- Toast for clipboard feedback -->
+  <div id="toast" class="toast">Message copied. If Instagram asks you to log in, just paste it in the chat.</div>
+
+  <script>
+    (function () {
+      const USERNAME = "startalkwithvaidehi";
+      const toast = document.getElementById("toast");
+
+      function showToast() {
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      function buildMessage(service) {
+        return `I am interested in ${service}. My name is __________. Please share details and pricing.`;
+      }
+
+      function openInstagramDM(prefilledText) {
+        const url = `https://ig.me/m/${USERNAME}?text=${encodeURIComponent(prefilledText)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+      }
+
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast();
+        } catch (e) {
+          // ignore silently if clipboard fails
+        }
+      }
+
+      document.querySelectorAll(".service-link").forEach(el => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          const service = el.getAttribute("data-service") || "a service";
+          const msg = buildMessage(service);
+          copyToClipboard(msg);
+          openInstagramDM(msg);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
