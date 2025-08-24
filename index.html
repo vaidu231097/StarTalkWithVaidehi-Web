@@ -18,7 +18,7 @@
     header {
       background: rgba(58, 24, 70, 0.85);
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 2rem 1rem 1.5rem;
       color: #f7e7b5;
       letter-spacing: 0.12em;
       font-style: italic;
@@ -28,7 +28,7 @@
 
     header h1 {
       font-family: 'Cinzel', serif;
-      font-size: 3.2rem;
+      font-size: 2.4rem;
       margin: 0;
       position: relative;
       display: inline-block;
@@ -36,12 +36,12 @@
 
     header h1::after {
       content: ' ✨';
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #d4af37;
       text-shadow: 0 0 5px #ffd700;
       position: absolute;
-      top: -10px;
-      right: -30px;
+      top: -8px;
+      right: -28px;
     }
 
     nav {
@@ -52,7 +52,8 @@
       color: #d4af37;
       text-decoration: none;
       font-weight: 600;
-      margin: 0 1rem;
+      margin: 0 0.6rem;
+      font-size: 0.95rem;
       transition: text-shadow 0.3s ease;
     }
 
@@ -63,20 +64,20 @@
 
     section {
       max-width: 750px;
-      margin: 2rem auto;
+      margin: 1.5rem auto;
       background: rgba(31, 11, 47, 0.7);
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 1.8rem;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
 
     h2 {
       font-family: 'Cinzel', serif;
-      font-size: 2rem;
+      font-size: 1.6rem;
       color: #d4af37;
       border-bottom: 2px solid #b8860b;
       padding-bottom: 0.3rem;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1rem;
     }
 
     ul {
@@ -87,9 +88,9 @@
 
     ul li {
       background: rgba(212, 175, 55, 0.15);
-      margin-bottom: 0.7rem;
-      padding: 0.8rem 1.2rem;
-      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
       color: #f7e7b5;
       font-style: italic;
       box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
@@ -107,8 +108,6 @@
 
     ul li button {
       color: #f7e7b5;
-      text-decoration: none;
-      display: block;
       background: transparent;
       border: none;
       text-align: left;
@@ -126,13 +125,13 @@
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 24px;
+      bottom: 18px;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.85);
       color: #fff;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.9rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.25s ease;
@@ -140,49 +139,33 @@
     }
     .toast.show { opacity: 1; }
 
-    .testimonial {
-      background: rgba(58, 24, 70, 0.75);
-      margin: 1.3rem 0;
-      padding: 1.4rem 1.6rem;
-      border-left: 7px solid #d4af37;
-      font-style: italic;
-      color: #f7e7b5;
-      box-shadow: 0 0 12px #b8860b;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .testimonial:hover {
-      box-shadow: 0 0 22px #ffd700;
-    }
-
-    .testimonial strong {
-      display: block;
-      margin-top: 0.7rem;
-      font-style: normal;
-      color: #d4af37;
-      text-shadow: 0 0 5px #b8860b;
-    }
-
-    a {
-      color: #d4af37;
-      text-decoration: none;
-      font-weight: 600;
-      transition: text-shadow 0.3s ease;
-    }
-
-    a:hover {
-      text-decoration: underline;
-      text-shadow: 0 0 8px #ffd700;
-    }
-
     footer {
       background: rgba(58, 24, 70, 0.85);
       color: #f7e7b5;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 3rem;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+      margin-top: 2rem;
       text-shadow: 0 0 5px #d4af37;
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8rem; }
+      nav a { margin: 0.4rem; font-size: 0.85rem; }
+      section { margin: 1rem; padding: 1.2rem; }
+      h2 { font-size: 1.3rem; }
+      ul li { font-size: 0.9rem; padding: 0.8rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.5rem; }
+      nav { flex-direction: column; }
+      nav a { display: block; margin: 0.3rem 0; font-size: 0.8rem; }
+      section { margin: 0.6rem; padding: 1rem; }
+      h2 { font-size: 1.1rem; }
+      ul li { font-size: 0.85rem; padding: 0.6rem 0.8rem; }
+      .toast { font-size: 0.75rem; bottom: 14px; }
     }
   </style>
 </head>
