@@ -128,7 +128,7 @@
       left: 50%;
       bottom: 24px;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.75);
       color: #fff;
       padding: 10px 14px;
       border-radius: 8px;
@@ -183,24 +183,6 @@
       font-size: 0.9rem;
       margin-top: 3rem;
       text-shadow: 0 0 5px #d4af37;
-    }
-
-    @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
-      nav { display: flex; flex-wrap: wrap; justify-content: center; }
-      nav a { margin: 0.5rem; font-size: 0.9rem; }
-      section { margin: 1rem; padding: 1.2rem; }
-      h2 { font-size: 1.5rem; }
-      ul li { font-size: 0.9rem; padding: 0.6rem 1rem; }
-    }
-
-    @media (max-width: 480px) {
-      header h1 { font-size: 1.6rem; }
-      nav { flex-direction: column; }
-      nav a { display: block; margin: 0.4rem 0; }
-      section { margin: 0.8rem; padding: 1rem; }
-      h2 { font-size: 1.3rem; }
-      p, ul li, .testimonial { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -270,40 +252,34 @@
     &copy; 2025 StarTalkWithVaidehi | All Rights Reserved
   </footer>
 
-  <!-- Toast for messages -->
-  <div id="toast" class="toast"></div>
+  <!-- Toast for clipboard feedback -->
+  <div id="toast" class="toast">Message copied. If Instagram asks you to log in, just paste it in the chat.</div>
 
   <script>
     (function () {
       const USERNAME = "startalkwithvaidehi";
       const toast = document.getElementById("toast");
 
-      function showToast(text) {
-        toast.textContent = text;
+      function showToast() {
         toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 4000);
+        setTimeout(() => toast.classList.remove("show"), 2200);
       }
 
       function buildMessage(service) {
         return `I am interested in ${service}. My name is __________. Please share details and pricing.`;
       }
 
-      function isMobile() {
-        return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      function openInstagramDM(prefilledText) {
+        const url = `https://ig.me/m/${USERNAME}?text=${encodeURIComponent(prefilledText)}`;
+        window.open(url, "_blank", "noopener,noreferrer");
       }
 
-      function openInstagramDM(prefilledText) {
-        let url;
-        if (isMobile()) {
-          url = `https://ig.me/m/${USERNAME}?text=${encodeURIComponent(prefilledText)}`;
-        } else {
-          url = `https://ig.me/m/${USERNAME}`;
-          showToast("Please type or paste your message after login (Instagram does not allow auto-fill on desktop).");
-        }
-
-        const newWindow = window.open(url, "_blank", "noopener,noreferrer");
-        if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
-          showToast("Please login to your Instagram account.");
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast();
+        } catch (e) {
+          // ignore silently if clipboard fails
         }
       }
 
@@ -312,7 +288,7 @@
           e.preventDefault();
           const service = el.getAttribute("data-service") || "a service";
           const msg = buildMessage(service);
-          showToast("Redirecting to Instagram...");
+          copyToClipboard(msg);
           openInstagramDM(msg);
         });
       });
