@@ -333,17 +333,18 @@
     &copy; 2025 StarTalkWithVaidehi | All Rights Reserved
   </footer>
 
-  <!-- Toast for clipboard feedback -->
-  <div id="toast" class="toast">Message copied. If Instagram asks you to log in, just paste it in the chat.</div>
+  <!-- Toast for messages -->
+  <div id="toast" class="toast"></div>
 
   <script>
     (function () {
       const USERNAME = "startalkwithvaidehi";
       const toast = document.getElementById("toast");
 
-      function showToast() {
+      function showToast(text) {
+        toast.textContent = text;
         toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2200);
+        setTimeout(() => toast.classList.remove("show"), 3000);
       }
 
       function buildMessage(service) {
@@ -352,15 +353,10 @@
 
       function openInstagramDM(prefilledText) {
         const url = `https://ig.me/m/${USERNAME}?text=${encodeURIComponent(prefilledText)}`;
-        window.open(url, "_blank", "noopener,noreferrer");
-      }
+        const newWindow = window.open(url, "_blank", "noopener,noreferrer");
 
-      async function copyToClipboard(text) {
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast();
-        } catch (e) {
-          // ignore silently if clipboard fails
+        if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+          showToast("Please login to your Instagram account.");
         }
       }
 
@@ -369,7 +365,7 @@
           e.preventDefault();
           const service = el.getAttribute("data-service") || "a service";
           const msg = buildMessage(service);
-          copyToClipboard(msg);
+          showToast("Redirecting to Instagram...");
           openInstagramDM(msg);
         });
       });
