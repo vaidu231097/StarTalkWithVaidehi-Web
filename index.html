@@ -14,128 +14,198 @@
       padding: 0;
       line-height: 1.6;
     }
+
     header {
       background: rgba(58, 24, 70, 0.85);
       text-align: center;
-      padding: 2rem 1rem 1.5rem;
+      padding: 3rem 1rem 2rem;
       color: #f7e7b5;
       letter-spacing: 0.12em;
       font-style: italic;
       text-shadow: 0 0 4px #d4af37;
       border-bottom: 2px solid #d4af37;
     }
+
     header h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
+      font-size: 3.2rem;
       margin: 0;
       position: relative;
       display: inline-block;
     }
+
     header h1::after {
       content: ' ✨';
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #d4af37;
       text-shadow: 0 0 5px #ffd700;
       position: absolute;
-      top: -8px;
-      right: -28px;
+      top: -10px;
+      right: -30px;
     }
-    nav { margin-top: 1rem; }
+
+    nav {
+      margin-top: 1rem;
+    }
+
     nav a {
       color: #d4af37;
       text-decoration: none;
       font-weight: 600;
-      margin: 0 0.6rem;
-      font-size: 0.95rem;
+      margin: 0 1rem;
       transition: text-shadow 0.3s ease;
     }
+
     nav a:hover {
       text-decoration: underline;
       text-shadow: 0 0 8px #ffd700;
     }
+
     section {
       max-width: 750px;
-      margin: 1.5rem auto;
+      margin: 2rem auto;
       background: rgba(31, 11, 47, 0.7);
-      padding: 1.5rem 1.8rem;
+      padding: 2rem 2.5rem;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
+
     h2 {
       font-family: 'Cinzel', serif;
-      font-size: 1.6rem;
+      font-size: 2rem;
       color: #d4af37;
       border-bottom: 2px solid #b8860b;
       padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
-    ul { list-style: none; padding-left: 0; margin-top: 0; }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0;
+    }
+
     ul li {
       background: rgba(212, 175, 55, 0.15);
-      margin-bottom: 0.8rem;
-      padding: 1rem 1.2rem;
-      border-radius: 10px;
+      margin-bottom: 0.7rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
       color: #f7e7b5;
       font-style: italic;
       box-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
-      transition: background-color 0.3s ease, transform 0.06s ease;
+      transition: background-color 0.3s ease;
     }
+
     ul li:hover {
       background: rgba(212, 175, 55, 0.3);
       box-shadow: 0 0 15px #ffd700;
     }
-    ul li:active { transform: scale(0.995); }
-    ul li button {
+
+    .testimonial {
+      background: rgba(58, 24, 70, 0.75);
+      margin: 1.3rem 0;
+      padding: 1.4rem 1.6rem;
+      border-left: 7px solid #d4af37;
+      font-style: italic;
       color: #f7e7b5;
-      background: transparent;
-      border: none;
-      text-align: left;
-      width: 100%;
-      font: inherit;
-      cursor: pointer;
-      padding: 0;
+      box-shadow: 0 0 12px #b8860b;
+      transition: box-shadow 0.3s ease;
     }
-    ul li button:hover { text-decoration: underline; color: #ffd700; }
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.85);
-      color: #fff;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-      z-index: 9999;
+
+    .testimonial:hover {
+      box-shadow: 0 0 22px #ffd700;
     }
-    .toast.show { opacity: 1; }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 0.7rem;
+      font-style: normal;
+      color: #d4af37;
+      text-shadow: 0 0 5px #b8860b;
+    }
+
+    a {
+      color: #d4af37;
+      text-decoration: none;
+      font-weight: 600;
+      transition: text-shadow 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 8px #ffd700;
+    }
+
     footer {
       background: rgba(58, 24, 70, 0.85);
       color: #f7e7b5;
       text-align: center;
-      padding: 0.8rem;
-      font-size: 0.85rem;
-      margin-top: 2rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
       text-shadow: 0 0 5px #d4af37;
     }
+
+    /* -----------------
+       Responsive Design
+    -------------------*/
     @media (max-width: 768px) {
-      header h1 { font-size: 1.8rem; }
-      nav a { margin: 0.4rem; font-size: 0.85rem; }
-      section { margin: 1rem; padding: 1.2rem; }
-      h2 { font-size: 1.3rem; }
-      ul li { font-size: 0.9rem; padding: 0.8rem 1rem; }
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      section {
+        margin: 1rem;
+        padding: 1.2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+      }
     }
+
     @media (max-width: 480px) {
-      header h1 { font-size: 1.5rem; }
-      nav { flex-direction: column; }
-      nav a { display: block; margin: 0.3rem 0; font-size: 0.8rem; }
-      section { margin: 0.6rem; padding: 1rem; }
-      h2 { font-size: 1.1rem; }
-      ul li { font-size: 0.85rem; padding: 0.6rem 0.8rem; }
-      .toast { font-size: 0.75rem; bottom: 14px; }
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.4rem 0;
+      }
+
+      section {
+        margin: 0.8rem;
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      p, ul li, .testimonial {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -155,17 +225,63 @@
   <section id="home">
     <h2>Welcome</h2>
     <p>Unlock the magic of numbers with StarTalkWithVaidehi. Explore personalized numerology insights to guide your life path, relationships, and success with clarity and compassion.</p>
+    <p>Discover how numbers can illuminate your journey and open doors to deeper understanding.</p>
   </section>
 
   <section id="services">
     <h2>Services</h2>
     <ul>
-      <li><button class="service-link" data-service="Life Path Number Insights">Life Path Number Insights</button></li>
-      <li><button class="service-link" data-service="Name Numerology">Name Numerology</button></li>
-      <li><button class="service-link" data-service="Business Name Suggestions">Business Name Suggestions</button></li>
-      <li><button class="service-link" data-service="Compatibility Readings">Compatibility Readings</button></li>
-      <li><button class="service-link" data-service="Career Guidance">Career Guidance</button></li>
+      <li>Life Path Number Insights</li>
+      <li>Name Numerology – Discover the energy and vibration behind your name</li>
+      <li>Business Name Suggestions – Find the perfect name to attract success and positive energy</li>
+      <li>Personal Name Correction – Adjust your name’s vibration for better harmony and luck</li>
+      <li>Personal Year Forecasts – Understand the energies influencing your year ahead</li>
+      <li>Compatibility Relationship Readings – Explore the numerology behind your love life and connections</li>
+      <li>Financial Numerology – Gain insights into your financial energy and prosperity potential</li>
+      <li>Career Guidance – Discover your ideal path and unlock success through numbers</li>
+      <li>Lucky Numbers & Dates – Identify your most auspicious days and numbers</li>
+      <li>Lushu Grid Analysis – Reveal your energy grid for balance and positive flow</li>
+      <li>Angel Number Interpretations</li>
     </ul>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Hi, I’m Vaidehi Yadav, the heart behind StarTalkWithVaidehi.</p>
+    <p>Numerology has opened a beautiful door to understanding the deeper meanings in life through numbers and their vibrations. I’m passionate about helping you discover your unique life path, decode angel numbers, and find clarity and guidance through this ancient wisdom.</p>
+    <p>Whether you’re curious about your personal numbers or seeking insight into your relationships or career, I’m here to guide you with compassion and clarity. Let’s explore the magic of numbers together.</p>
+  </section>
+
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+
+    <div class="testimonial">
+      “I want this information to be satisfactory, looking forward to hear from you in future.” <strong>— AT</strong>
+    </div>
+    <div class="testimonial">
+      “The reading was awesome, thank you so much.” <strong>— AM</strong>
+    </div>
+    <div class="testimonial">
+      “Thank you for your insightful guidance... I now feel more prepared to welcome new connections with openness and awareness.” <strong>— MP</strong>
+    </div>
+    <div class="testimonial">
+      “Thank you so much for your time and insightful reading... happy to talk with you.” <strong>— PJ</strong>
+    </div>
+    <div class="testimonial">
+      “It was truly wonderful to receive the numerology report... beautifully done.” <strong>— SP</strong>
+    </div>
+    <div class="testimonial">
+      “The numbers clearly revealed which cities support my growth... Highly recommend.” <strong>— SP</strong>
+    </div>
+    <div class="testimonial">
+      “The remedies you suggested are very good.” <strong>— PK</strong>
+    </div>
+    <div class="testimonial">
+      “I'm truly glad the reading resonated with you... Wishing you clarity and growth.” <strong>— SJ</strong>
+    </div>
+    <div class="testimonial">
+      “I'll soon reconnect for sure. I like your accurate numerology reading.” <strong>— VK</strong>
+    </div>
   </section>
 
   <section id="contact">
@@ -177,59 +293,5 @@
     &copy; 2025 StarTalkWithVaidehi | All Rights Reserved
   </footer>
 
-  <div id="toast" class="toast">✨ Message copied. If Instagram asks login, please log in once.</div>
-
-  <script>
-    (function () {
-      const USERNAME = "startalkwithvaidehi";
-      const toast = document.getElementById("toast");
-
-      function showToast(msg) {
-        toast.innerText = msg;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2200);
-      }
-
-      function buildMessage(service) {
-        return `I am interested in ${service}. My name is __________. Please share details and pricing.`;
-      }
-
-      function openInstagramDM(prefilledText) {
-        const encoded = encodeURIComponent(prefilledText);
-        const ua = navigator.userAgent.toLowerCase();
-
-        // Mobile → try deep link
-        if (/iphone|ipad|ipod|android/.test(ua)) {
-          window.location.href = `instagram://direct?text=${encoded}`;
-          setTimeout(() => {
-            // fallback if app not installed
-            window.open(`https://ig.me/m/${USERNAME}?text=${encoded}`, "_blank");
-          }, 1000);
-        } else {
-          // Desktop → open web
-          window.open(`https://ig.me/m/${USERNAME}?text=${encoded}`, "_blank");
-        }
-      }
-
-      async function copyToClipboard(text) {
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast("✨ Message copied & Instagram opened!");
-        } catch (e) {
-          showToast("✨ Please log in to Instagram.");
-        }
-      }
-
-      document.querySelectorAll(".service-link").forEach(el => {
-        el.addEventListener("click", (e) => {
-          e.preventDefault();
-          const service = el.getAttribute("data-service") || "a service";
-          const msg = buildMessage(service);
-          copyToClipboard(msg);
-          openInstagramDM(msg);
-        });
-      });
-    })();
-  </script>
 </body>
 </html>
