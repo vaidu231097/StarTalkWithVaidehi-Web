@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vaidu231097.github.io/StarTalkWithVaidehi-Web/sitemap.xml
